@@ -1,13 +1,19 @@
 {
   "variants": {
-    "type=left": {
-      "model": "minecraft:block/oak_panel_left"
-    },
     "type=double": {
       "model": "minecraft:block/oak_planks"
     },
-    "type=right": {
-      "model": "minecraft:block/oak_panel_right"
+    "type=north": {
+      "model": "betterthansquids:block/oak_panel_north"
+    },
+    "type=south": {
+      "model": "betterthansquids:block/oak_panel_south"
+    },
+    "type=east": {
+      "model": "betterthansquids:block/oak_panel_east"
+    },
+    "type=west": {
+      "model": "betterthansquids:block/oak_panel_west"
     }
   }
 }
