@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=left": {
+      "model": "minecraft:block/oak_panel_left"
+    },
+    "type=double": {
+      "model": "minecraft:block/oak_planks"
+    },
+    "type=right": {
+      "model": "minecraft:block/oak_panel_right"
+    }
+  }
+}

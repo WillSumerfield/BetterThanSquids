@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+          [
+            "ggg",
+            "gpg",
+            "ggg"
+          ],
+  "key":
+  {
+    "g":
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    "p":
+    {
+      "item": "minecraft:potato"
+    }
+  },
+  "result":
+  {
+    "item": "betterthansquids:golden_potato"
+  }
+}
