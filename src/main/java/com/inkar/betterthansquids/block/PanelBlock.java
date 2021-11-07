@@ -43,28 +43,8 @@ public class PanelBlock extends Block implements SimpleWaterloggedBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(TYPE, PanelType.NORTH).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
-    public boolean useShapeForLightOcclusion(BlockState p_56395_) {
-        return p_56395_.getValue(TYPE) != PanelType.DOUBLE;
-    }
-
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_56388_) {
         p_56388_.add(TYPE, WATERLOGGED);
-    }
-
-    public VoxelShape getShape(BlockState p_56390_, BlockGetter p_56391_, BlockPos p_56392_, CollisionContext p_56393_) {
-        PanelType panelType = p_56390_.getValue(TYPE);
-        switch(panelType) {
-            case DOUBLE:
-                return Shapes.block();
-            case SOUTH:
-                return SOUTH_AABB;
-            case EAST:
-                return EAST_AABB;
-            case WEST:
-                return WEST_AABB;
-            default:
-                return NORTH_AABB;
-        }
     }
 
     @Nullable
@@ -88,56 +68,11 @@ public class PanelBlock extends Block implements SimpleWaterloggedBlock {
         }
     }
 
-    public boolean canBeReplaced(BlockState p_56373_, BlockPlaceContext p_56374_) {
-        ItemStack itemstack = p_56374_.getItemInHand();
-        PanelType panelType = p_56373_.getValue(TYPE);
-        if (panelType != PanelType.DOUBLE && itemstack.is(this.asItem())) {
-            if (p_56374_.replacingClickedOnBlock()) {
-                boolean flag = p_56374_.getClickLocation().y - (double)p_56374_.getClickedPos().getY() > 0.5D;
-                Direction direction = p_56374_.getClickedFace();
-                if (panelType == PanelType.SOUTH) {
-                    return direction == Direction.UP || flag && direction.getAxis().isHorizontal();
-                } else {
-                    return direction == Direction.DOWN || !flag && direction.getAxis().isHorizontal();
-                }
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    public FluidState getFluidState(BlockState p_56397_) {
-        return p_56397_.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(p_56397_);
-    }
-
     public boolean placeLiquid(LevelAccessor p_56368_, BlockPos p_56369_, BlockState p_56370_, FluidState p_56371_) {
         return p_56370_.getValue(TYPE) != PanelType.DOUBLE ? SimpleWaterloggedBlock.super.placeLiquid(p_56368_, p_56369_, p_56370_, p_56371_) : false;
     }
 
     public boolean canPlaceLiquid(BlockGetter p_56363_, BlockPos p_56364_, BlockState p_56365_, Fluid p_56366_) {
         return p_56365_.getValue(TYPE) != PanelType.DOUBLE ? SimpleWaterloggedBlock.super.canPlaceLiquid(p_56363_, p_56364_, p_56365_, p_56366_) : false;
-    }
-
-    public BlockState updateShape(BlockState p_56381_, Direction p_56382_, BlockState p_56383_, LevelAccessor p_56384_, BlockPos p_56385_, BlockPos p_56386_) {
-        if (p_56381_.getValue(WATERLOGGED)) {
-            p_56384_.getLiquidTicks().scheduleTick(p_56385_, Fluids.WATER, Fluids.WATER.getTickDelay(p_56384_));
-        }
-
-        return super.updateShape(p_56381_, p_56382_, p_56383_, p_56384_, p_56385_, p_56386_);
-    }
-
-    public boolean isPathfindable(BlockState p_56376_, BlockGetter p_56377_, BlockPos p_56378_, PathComputationType p_56379_) {
-        switch(p_56379_) {
-            case LAND:
-                return false;
-            case WATER:
-                return p_56377_.getFluidState(p_56378_).is(FluidTags.WATER);
-            case AIR:
-                return false;
-            default:
-                return false;
-        }
     }
 }
