@@ -1,0 +1,23 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "#side"
+  },
+  "gui": {
+    "rotation": [ 0, 0, 0 ],
+    "translation": [ 0, 3, 0],
+    "scale":[ 0.625, 0.625, 0.625 ]
+  },
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [ 0, 135, 0 ],
+      "translation": [ 0, 0, 0],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, -225, 0 ],
+      "translation": [ 0, 0, 0],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  }
+}

@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -27,9 +26,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.awt.*;
-
 import static java.lang.Math.abs;
 
 public class PanelBlock extends Block implements SimpleWaterloggedBlock {
@@ -81,10 +77,30 @@ public class PanelBlock extends Block implements SimpleWaterloggedBlock {
                         else return blockstate1.setValue(TYPE, PanelType.NORTH);
                     }
                 }
-                case NORTH -> { return blockstate1.setValue(TYPE, PanelType.SOUTH); }
-                case EAST -> { return blockstate1.setValue(TYPE, PanelType.EAST); }
-                case WEST -> { return blockstate1.setValue(TYPE, PanelType.WEST); }
-                default -> { return blockstate1.setValue(TYPE, PanelType.NORTH); }
+                case NORTH ->
+                        {
+                            if (x_pos > 0.1666D) return blockstate1.setValue(TYPE, PanelType.WEST);
+                            else if (x_pos < -0.1666D) return blockstate1.setValue(TYPE, PanelType.EAST);
+                            else return blockstate1.setValue(TYPE, PanelType.SOUTH);
+                        }
+                case EAST ->
+                        {
+                            if (z_pos > 0.1666D) return blockstate1.setValue(TYPE, PanelType.SOUTH);
+                            else if (z_pos < -0.1666D) return blockstate1.setValue(TYPE, PanelType.NORTH);
+                            else return blockstate1.setValue(TYPE, PanelType.EAST);
+                        }
+                case WEST ->
+                        {
+                            if (z_pos > 0.1666D) return blockstate1.setValue(TYPE, PanelType.SOUTH);
+                            else if (z_pos < -0.1666D) return blockstate1.setValue(TYPE, PanelType.NORTH);
+                            else return blockstate1.setValue(TYPE, PanelType.WEST);
+                        }
+                default ->
+                        {
+                            if (x_pos > 0.1666D) return blockstate1.setValue(TYPE, PanelType.WEST);
+                            else if (x_pos < -0.1666D) return blockstate1.setValue(TYPE, PanelType.EAST);
+                            else return blockstate1.setValue(TYPE, PanelType.NORTH);
+                        }
             }
         }
     }
@@ -126,6 +142,8 @@ public class PanelBlock extends Block implements SimpleWaterloggedBlock {
         {
             if (p_56374_.replacingClickedOnBlock())
             {
+                if (p_56374_.getPlayer().isSecondaryUseActive()) return false;
+
                 Direction direction = p_56374_.getClickedFace();
 
                 // Check for each direction

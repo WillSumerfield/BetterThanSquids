@@ -1,7 +1,5 @@
 {
-    "textures": {
-        "particle": "#side"
-    },
+    "parent": "betterthansquids:block/panel",
     "elements": [
         {   "from": [ 0, 0, 8 ],
             "to": [ 16, 16, 16 ],

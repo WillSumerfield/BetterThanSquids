@@ -3,6 +3,7 @@ package com.inkar.betterthansquids.block;
 import com.inkar.betterthansquids.BetterThanSquids;
 import com.inkar.betterthansquids.item.ModItems;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
 import net.minecraft.world.level.block.*;
@@ -26,7 +27,7 @@ public class ModBlocks
 
     public static final RegistryObject<Block> OAK_PANEL = registerBlock("oak_panel",
             () -> new PanelBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD)),
-            (new Item.Properties()));
+            (new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     //endregion
 

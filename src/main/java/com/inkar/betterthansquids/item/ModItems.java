@@ -30,7 +30,6 @@ public class ModItems
 
     //endregion
 
-
     // A method used to add this register to the eventBus
     public static void register (IEventBus eventBus)
     {
