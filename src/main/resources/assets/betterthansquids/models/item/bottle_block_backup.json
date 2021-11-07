@@ -1,0 +1,35 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "0": "betterthansquids:block/glass_bottle/bottle_side",
+    "1": "betterthansquids:block/glass_bottle/bottle_top",
+    "2": "betterthansquids:block/glass_bottle/bottle_stopper",
+    "3": "betterthansquids:block/glass_bottle/bottle_topper",
+    "particle": "betterthansquids:block/glass_bottle/bottle_top"
+  },
+  "elements": [
+    {	"from": [5, 0, 6],
+      "to": [9, 6, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 4, 6], "texture": "#0"},
+        "east": {"uv": [0, 0, 4, 6], "texture": "#0"},
+        "south": {"uv": [0, 0, 4, 6], "texture": "#0"},
+        "west": {"uv": [0, 0, 4, 6], "texture": "#0"},
+        "up": {"uv": [0, 0, 4, 4], "texture": "#1"},
+        "down": {"uv": [0, 0, 4, 4], "texture": "#1"}
+      }
+    },
+    {
+      "from": [6, 6, 7],
+      "to": [8, 8, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#2"},
+        "east": {"uv": [0, 0, 2, 2], "texture": "#2"},
+        "south": {"uv": [0, 0, 2, 2], "texture": "#2"},
+        "west": {"uv": [0, 0, 2, 2], "texture": "#2"},
+        "up": {"uv": [0, 0, 2, 2], "texture": "#3"},
+        "down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+      }
+    }
+  ]
+}

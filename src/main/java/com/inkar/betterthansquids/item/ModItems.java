@@ -8,6 +8,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.MinecartItem;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -26,7 +27,8 @@ public class ModItems
             () -> new Item((new Item.Properties()).food(new FoodProperties.Builder().nutrition(5).saturationMod(2.4F).effect(() -> new MobEffectInstance(MobEffects.HEAL, 1, 0), 1.0F).alwaysEat().build()).tab(CreativeModeTab.TAB_FOOD)));
 
     public static final RegistryObject<Item> REDSTONE_LAMP_MINECART = ITEMS.register("redstone_lamp_minecart",
-        () -> new MinecartItem(AbstractMinecart.Type.CHEST, (new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+        () -> new MinecartItem(AbstractMinecart.Type.TNT, (new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+
 
     //endregion
 

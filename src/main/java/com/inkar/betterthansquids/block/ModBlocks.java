@@ -29,6 +29,10 @@ public class ModBlocks
             () -> new PanelBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F).sound(SoundType.WOOD)),
             (new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
+    public static final RegistryObject<Block> BOTTLE_BLOCK = registerBlock("bottle_block",
+            () -> new BottleBlock(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND).noOcclusion().strength(0.1F).sound(SoundType.GLASS).lightLevel(CandleBlock.LIGHT_EMISSION)),
+            (new Item.Properties()));
+
     //endregion
 
     private static <T extends Block> void registerBlockItem (String name, RegistryObject<T> block, Item.Properties itemProperties)
