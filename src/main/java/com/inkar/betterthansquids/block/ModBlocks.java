@@ -5,7 +5,6 @@ import com.inkar.betterthansquids.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -30,8 +29,8 @@ public class ModBlocks
             (new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> BOTTLE_BLOCK = registerBlock("bottle_block",
-            () -> new BottleBlock(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND).noOcclusion().strength(0.1F).sound(SoundType.GLASS).lightLevel(CandleBlock.LIGHT_EMISSION)),
-            (new Item.Properties()));
+            () -> new BottleBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.NONE).noOcclusion().strength(0.1F).sound(SoundType.GLASS)),
+            (new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
     //endregion
 
