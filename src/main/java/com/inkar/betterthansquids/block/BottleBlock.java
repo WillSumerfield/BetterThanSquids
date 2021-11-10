@@ -8,6 +8,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import java.util.List;
 import java.util.function.ToIntFunction;
 import net.minecraft.Util;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -39,6 +40,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.client.RenderProperties;
 
 import javax.annotation.Nullable;
 
@@ -59,7 +61,7 @@ public class BottleBlock extends AbstractBottleBlock implements SimpleWaterlogge
 
     public InteractionResult use(BlockState p_152822_, Level p_152823_, BlockPos p_152824_, Player p_152825_, InteractionHand p_152826_, BlockHitResult p_152827_) {
         if (p_152825_.getItemInHand(p_152826_).isEmpty() || p_152825_.isSecondaryUseActive()) {
-            //grab(p_152825_, p_152822_, p_152823_, p_152824_, this);
+            grab(p_152825_, p_152822_, p_152823_, p_152824_);
             return InteractionResult.sidedSuccess(p_152823_.isClientSide);
         } else {
             return InteractionResult.PASS;
@@ -128,22 +130,11 @@ public class BottleBlock extends AbstractBottleBlock implements SimpleWaterlogge
         return Block.canSupportCenter(p_152830_, p_152831_.below(), Direction.UP);
     }
 
-    public VoxelShape getVisualShape(BlockState p_48735_, BlockGetter p_48736_, BlockPos p_48737_, CollisionContext p_48738_) {
-        return Shapes.empty();
-    }
+    public void grab(@Nullable Player p_151900_, BlockState p_151901_, Level p_151902_, BlockPos p_151903_)
+    {
+        //p_151901_.setValue(BOTTLES, BOTTLES.getValue(toString()));
 
-    public float getShadeBrightness(BlockState p_48731_, BlockGetter p_48732_, BlockPos p_48733_) {
-        return 1.0F;
+        //popResource(p_151902_, p_151903_, new ItemStack(this));
+        //p_151902_.gameEvent(p_151900_, GameEvent.BLOCK_CHANGE, p_151903_);
     }
-
-    public boolean propagatesSkylightDown(BlockState p_48740_, BlockGetter p_48741_, BlockPos p_48742_) {
-        return true;
-    }
-
-//    public static void grab(@Nullable Player p_151900_, BlockState p_151901_, Level p_151902_, BlockPos p_151903_, AbstractBottleBlock bottle)
-//    {
-//        p_151901_.cycle(BOTTLES);
-//        popResource(p_151902_, p_151903_, new ItemStack(bottle));
-//        p_151902_.gameEvent(p_151900_, GameEvent.BLOCK_CHANGE, p_151903_);
-//    }
 }

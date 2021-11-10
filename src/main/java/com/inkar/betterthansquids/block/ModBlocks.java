@@ -29,7 +29,7 @@ public class ModBlocks
             (new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 
     public static final RegistryObject<Block> BOTTLE_BLOCK = registerBlock("bottle_block",
-            () -> new BottleBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.NONE).noOcclusion().strength(0.1F).sound(SoundType.GLASS)),
+            () -> new BottleBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.NONE).noOcclusion().strength(0.1F).sound(SoundType.GLASS).isViewBlocking((a,b,c) -> false)),
             (new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
     //endregion

@@ -1,8 +1,9 @@
 package com.inkar.betterthansquids;
 
-import com.inkar.betterthansquids.block.BottleBlock;
 import com.inkar.betterthansquids.block.ModBlocks;
 import com.inkar.betterthansquids.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -56,8 +57,9 @@ public class BetterThanSquids
     {
     }
 
-    private void setupClient (final FMLClientSetupEvent event)
+    private void setupClient(final FMLClientSetupEvent event)
     {
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BOTTLE_BLOCK.get(), RenderType.translucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
