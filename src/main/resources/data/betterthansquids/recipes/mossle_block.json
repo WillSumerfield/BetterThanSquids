@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+          [
+            "___",
+            "_c_",
+            "___"
+          ],
+  "key":
+  {
+    "c":
+    {
+      "item": "minecraft:cobblestone"
+    },
+    "_": {
+      "item": "minecraft:moss_carpet"
+    }
+  },
+  "result": {
+    "item": "betterthansquids:mossle_block"
+  }
+}

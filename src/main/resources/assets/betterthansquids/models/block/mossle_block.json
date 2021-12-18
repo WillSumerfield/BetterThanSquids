@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "betterthansquids:block/mossle_block/cobby_mosslestone"
+  }
+}

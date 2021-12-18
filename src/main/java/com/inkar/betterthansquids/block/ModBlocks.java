@@ -32,6 +32,10 @@ public class ModBlocks
             () -> new BottleBlock(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.NONE).noOcclusion().strength(0.1F).sound(SoundType.GLASS).isViewBlocking((a,b,c) -> false)),
             (new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
+    public static final RegistryObject<Block> MOSSLE_BLOCK = registerBlock("mossle_block",
+            () -> new MossleBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.COLOR_GREEN).strength(0.2F, 0.2F).sound(SoundType.MOSS)),
+            (new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
     //endregion
 
     private static <T extends Block> void registerBlockItem (String name, RegistryObject<T> block, Item.Properties itemProperties)
