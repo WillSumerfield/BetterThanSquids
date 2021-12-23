@@ -2,6 +2,6 @@
   "parent": "item/generated",
   "textures":
   {
-    "layer0": "betterthansquids:item/redstone_lamp_minecart"
+    "layer0": "betterthansquids:item/lamp_minecart"
   }
 }
